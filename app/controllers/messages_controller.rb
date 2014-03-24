@@ -15,10 +15,13 @@ class MessagesController < ApplicationController
     respond_with(@message)
   end
   
-  def show
+  def update
     @message = Message.find(params[:id])
-    
-    respond_with(@message)
+    if @messages.update_attributes(params[:message])
+      respond_with(@message)
+    else
+      respond_with(@message.errors, status: :unprocessable_entity)
+    end
   end
   
   def destroy
@@ -26,6 +29,12 @@ class MessagesController < ApplicationController
     @message.destroy
     
     respond_with(nil)
+  end
+  
+  def show
+    @message = Message.find(params[:id])
+    
+    respond_with(@message)
   end
   
   def message_params

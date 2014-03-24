@@ -4,7 +4,18 @@ window.Snapmsg = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('hello from bb!');
+    var user = new Snapmsg.Models.User();
+    var messages; 
+    user.fetch({
+      success: function(){
+        messages = new Snapmsg.Collections.Messages(user);
+        messages.fetch();
+      },
+      error: function(){
+        console.error("Failed to fetch user.");
+      }  
+    });
+    
   }
 };
   
