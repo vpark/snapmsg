@@ -7,7 +7,7 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
   
   routes: {
     "": "index",
-    "users/": "showUsersIndex",
+    "users": "showUsersIndex",
     "users/:user_id/messages": "showMessegesIndex",
     "users/:user_id/messages/:messages_id": "showMessage",
   },
@@ -20,6 +20,7 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     var usersIndexView = new Snapmsg.Views.UsersIndex({
       user: this.user
     });
+    this.$el.html(usersIndexView);
     debugger;
   }
 });
