@@ -1,6 +1,8 @@
 Snapmsg.Routers.AppRouter = Backbone.Router.extend({
-  initialize: function(){
-    
+  initialize: function(user, messages){
+    this.user = user;
+    this.messages = messages;
+    console.log("router initialized")
   },
   
   routes: {
@@ -14,7 +16,10 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
   
   },
   
-  showUsersIndex: function(user_id){
-    
+  showUsersIndex: function(){
+    var usersIndexView = new Snapmsg.Views.UsersIndex({
+      user: this.user
+    });
+    debugger;
   }
 });
