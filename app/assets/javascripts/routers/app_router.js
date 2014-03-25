@@ -1,7 +1,8 @@
 Snapmsg.Routers.AppRouter = Backbone.Router.extend({
-  initialize: function(user, messages){
+  initialize: function(user, messages, $container){
     this.user = user;
     this.messages = messages;
+    this.$container = $container;
     console.log("router initialized")
   },
   
@@ -20,7 +21,15 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     var usersIndexView = new Snapmsg.Views.UsersIndex({
       user: this.user
     });
-    this.$el.html(usersIndexView);
-    debugger;
+    console.log("Running Users Index View");
+    this.$container.html(usersIndexView.render().$el);
+  },
+  
+  showMessegesIndex: function(){
+    var messagesIndexView = new Snapmsg.Views.MessagesIndex({
+      messages: this.messages
+    });
+    console.log("Running Messages Index View");
+    this.$container.html(messagesIndexView.render().$el);
   }
 });

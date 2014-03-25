@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :user
-  before_validation :add_default_value
+  # before_save :add_default_value
   
   validates_presence_of :title, :content
   
