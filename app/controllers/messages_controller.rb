@@ -12,7 +12,9 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     @message.save!
     
-    respond_with(@message)
+    # respond_with(@message)
+    redirect_to user_messages_url
+    # render "show"
   end
   
   def update

@@ -1,3 +1,7 @@
 Snapmsg.Models.Message = Backbone.Model.extend({
-  // urlRoot: "/api/users/:user_id/messages"
+  initialize: function(models, options){
+    // this.user = options.user;
+    // console.log(this.user);
+    // this.url = options.user.url() + "/messages";
+  }
 });

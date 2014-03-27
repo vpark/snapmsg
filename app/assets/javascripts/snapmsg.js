@@ -9,11 +9,10 @@ window.Snapmsg = {
     user.fetch({
       success: function(){
         console.log("user fetched");
-        console.log(user);
-        var messages = new Snapmsg.Collections.Messages(user);
+        var messages = new Snapmsg.Collections.Messages([], {user: user});
         messages.fetch({
           success: function(){
-            console.log("messages fetched");            
+            console.log("messages fetched");
             new Snapmsg.Routers.AppRouter(user, messages, $container);
             Backbone.history.start();
           }

@@ -1,4 +1,6 @@
 <ul>
+  <a href= "user/<%= user.id %>/messages/new" >New Message</a>
+  <div id="new_message"></div>
   <% messages.each(function (message){ %>
     <li><%= message.escape("title") %></li>
   <% }); %>

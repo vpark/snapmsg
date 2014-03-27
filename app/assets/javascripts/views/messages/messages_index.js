@@ -1,20 +1,33 @@
 Snapmsg.Views.MessagesIndex = Backbone.View.extend({
   initialize: function(options){
+    this.user = options.user;
     this.messages = options.messages;
   },
   
   events: {
-    "click button.refresh": "refresh"
+    "click button.refresh": "refresh",
+    "click a": "renderNewMessage",
+    "click button#cancel": "cancelNewMessage",
   },
   
-  refresh:function(){
+  cancelNewMessage: function(){
+        this.$('div#new_message').empty();
+  },
+  
+  renderNewMessage: function(){
+    event.preventDefault();
+    var messagesNewView = new Snapmsg.Views.MessagesNew({
+      user: this.user,
+      messages: this.messages
+    });
+    this.$('div#new_message').html(messagesNewView.render().el);
+  },
+  
+  refresh: function(){
     var view = this;
-    console.log("I'm refreshed");
-    // debugger;
     this.messages.fetch({
       success: function(){
-        view.render;
-        console.log('refetched messages');
+        view.render();
       }
     });
   },
@@ -23,6 +36,7 @@ Snapmsg.Views.MessagesIndex = Backbone.View.extend({
   
   render: function(){
     var renderedContent = this.template({
+      user: this.user,
       messages: this.messages
     });
     this.$el.html(renderedContent);

@@ -1,6 +1,7 @@
 Snapmsg.Collections.Messages = Backbone.Collection.extend({
   model: Snapmsg.Models.Message,
-  initialize: function(options){
-    this.url = options.url() + "/messages";
+  initialize: function(models, options){
+    this.user = options.user
+    this.url = this.user.url() + "/messages";
   }
 });
