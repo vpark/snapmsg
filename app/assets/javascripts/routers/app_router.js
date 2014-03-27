@@ -10,8 +10,8 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     "": "index",
     "users": "showUsersIndex",
     "users/:user_id/messages": "showMessegesIndex",
-    "users/:user_id/messages/new": "showMessegesNew",
-    "users/:user_id/messages/:messages_id": "showMessage",
+    // "users/:user_id/messages/new": "showMessegesNew",
+    // "users/:user_id/messages/:messages_id": "showMessage",
   },
   
   index: {
