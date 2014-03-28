@@ -1,0 +1,15 @@
+<div class="message_edit">
+<h2> Edit Message </h2>
+
+<form class="message_edit">
+  <label for="message_title">Title:</label>
+  <input id="message_title" type="text" value="<%=message.escape("title")%>">
+  <br>
+  <label for="message_content">Content:</label>
+  <!-- <input id="message_content" rows="10" col="20"></textarea> -->
+  <input id="message_content" type="text" value="<%=message.escape("content")%>">
+  <br>
+  <button class="cancel">Cancel</button>
+  <input type="submit">
+</form>
+</div>

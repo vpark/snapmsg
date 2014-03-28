@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
   
   def update
     @message = Message.find(params[:id])
-    if @messages.update_attributes(params[:message])
+    if @message.update_attributes(message_params)
       respond_with(@message)
     else
       respond_with(@message.errors, status: :unprocessable_entity)

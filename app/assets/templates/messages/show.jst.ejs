@@ -1,5 +1,10 @@
 <ul>
   <% messages.each(function (message){ %>
-    <li><%= message.escape("title") %></li>
-  <% }); %>
-</ul>
+    <li id=<%= message.id %>><%= message.escape("title") %>
+      <button class="copy_link">Copy Link</button>
+      <button class="edit">Edit</button>
+      <button class="delete">Delete</button>
+    </li>
+    <br>
+    <% }); %>
+  </ul>
