@@ -2,6 +2,7 @@ Snapmsg.Views.MessagesIndex = Backbone.View.extend({
   initialize: function(options){
     this.user = options.user;
     this.messages = options.messages;
+    this.subviewShow = this.renderMessagesShow();
   },
   
   events: {
@@ -16,6 +17,13 @@ Snapmsg.Views.MessagesIndex = Backbone.View.extend({
       messages: this.messages
     });
     $('div#new_message').html(messagesNewView.render().$el);
+  },
+  
+  renderMessagesShow: function(){
+    var messagesShowView = new Snapmsg.Views.MessagesShow({
+      messages: this.messages
+    });
+    return messagesShowView;
   },
   
   refresh: function(){
@@ -35,6 +43,7 @@ Snapmsg.Views.MessagesIndex = Backbone.View.extend({
       messages: this.messages
     });
     this.$el.html(renderedContent);
+    this.subviewShow.setElement(this.$('div#show_messages')).render();
     return this;
   }
 });
