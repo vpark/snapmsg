@@ -1,7 +1,7 @@
 <ul>
   <% messages.each(function (message){ %>
     <li id=<%= message.id %>><%= message.escape("title") %>
-      <button class="copy_link">Copy Link</button>
+      <button class="copy_link" data-clipboard-text="<% message.escape("url")%>">Copy Link</button>
       <button class="edit">Edit</button>
       <button class="delete">Delete</button>
     </li>
