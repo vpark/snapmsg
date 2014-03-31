@@ -1,12 +1,9 @@
-<ul>
-  <% messages.each(function (message){ %>
-    <li id=<%= message.id %>><%= message.escape("title") %>
-      <button class="copy_link" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>">Copy Link</button>
-      <button class="edit">Edit</button>
-      <button class="delete">Delete</button>
-    </li>
-    <br>
-    <% }); %>
-  </ul>
-  
-  <button id="my-button" data-clipboard-text="Copy me!" title="Click to copy to clipboard.">Copy to Clipboard</button>
+<div id="message-title">
+  Title: 
+  <%= message.get("title")%>
+</div>
+
+<div id="message-content">
+  Content: 
+  <%= message.get("content")%>
+</div>

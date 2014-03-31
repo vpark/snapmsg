@@ -36,7 +36,12 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find(params[:id])
     
-    respond_with(@message)
+    if @message.viewed == false
+      @message.update_attributes(viewed: true)
+      respond_with(@message)
+    else
+      respond_with(nil)
+    end
   end
   
   def message_params

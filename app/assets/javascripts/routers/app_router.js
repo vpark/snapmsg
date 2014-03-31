@@ -12,7 +12,7 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     "users": "showUsersIndex",
     "users/:user_id/messages": "showMessegesIndex",
     "users/:user_id/messages/new": "showMessegesNew",
-    // "messages/:message_id": "showMessage",
+    "messages/:message_id": "showMessage",
     // "users/:user_id/messages/:messages_id": "showMessage",
   },
   
@@ -20,8 +20,22 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     
   },
   
-  showMessage: function(){
-    
+  showMessage: function(message_id){
+    var view = this;
+    var messageModel = new Snapmsg.Models.Message([],{
+      id: message_id
+    });
+    console.log('id', message_id)
+      messageModel.fetch({
+        success: function(){
+          console.log("message model fetched");
+          var messageShow = new Snapmsg.Views.MessagesShow({
+            message: messageModel
+          });
+        view.$container.html(messageShow.render().$el);
+        }
+      });
+
   },
   
   showUsersIndex: function(){

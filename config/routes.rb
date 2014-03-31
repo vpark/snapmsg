@@ -3,7 +3,7 @@ Snapmsg::Application.routes.draw do
     resources :users, only: [:index, :show], defaults: {format: :json}  do
       resources :messages, only: [:index, :create, :show, :update, :destroy], defaults: {format: :json} 
     end
-    # resources :messages, only: [:show], defaults: {format: :json}
+    resources :messages, only: [:show], defaults: {format: :json}
   end
 
   root to:  "main#index"
