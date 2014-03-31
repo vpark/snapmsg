@@ -3,6 +3,7 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     this.user = user;
     this.messages = messages;
     this.$container = $container;
+    this.zeroClipboard();
     console.log("router initialized")
   },
   
@@ -10,11 +11,16 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     "": "index",
     "users": "showUsersIndex",
     "users/:user_id/messages": "showMessegesIndex",
-    // "users/:user_id/messages/new": "showMessegesNew",
+    "users/:user_id/messages/new": "showMessegesNew",
+    // "messages/:message_id": "showMessage",
     // "users/:user_id/messages/:messages_id": "showMessage",
   },
   
   index: {
+    
+  },
+  
+  showMessage: function(){
     
   },
   
@@ -33,6 +39,7 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
     });
     console.log("Running Messages Index View");
     this.$container.html(messagesIndexView.render().$el);
+    this.copyLink();
   },
   
   showMessegesNew: function(){
@@ -41,5 +48,23 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
       messages: this.messages
     });
     this.$container.html(messagesNewView.render().$el);
+  },
+  
+  zeroClipboard: function(){
+    ZeroClipboard.config({
+      moviePath: "http://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/1.3.2/ZeroClipboard.swf"
+    });
+  },
+  
+  copyLink: function () {
+    var zeroclipboard = new ZeroClipboard($('button[data-clipboard-text]'));
+    
+    zeroclipboard.on('load', function(client) {
+      console.log('loaded', ZeroClipboard.config());
+      zeroclipboard.on('complete', function(client, args) {
+        console.log('complete', args, $(this));
+      });
+    });
   }
+  
 });

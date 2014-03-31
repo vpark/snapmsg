@@ -1,14 +1,8 @@
 Snapmsg.Views.MessagesShow = Backbone.View.extend({
   initialize: function(options){
+    this.user = options.user;
     this.messages = options.messages;
     console.log('in mesagesshow');
-    this.client = new ZeroClipboard([],{
-      moviePath: '/assets/ZeroClipboard.swf'
-    });
-    this.client.on( 'load', function (event) {
-      event.clipboardData.setData( "text/plain", "Copy me!" );
-      console.log('loclat')
-    });
   },
   
   events: {
@@ -16,24 +10,8 @@ Snapmsg.Views.MessagesShow = Backbone.View.extend({
     "submit form.message_edit": "editConfirm",
     "click button.cancel": "editCancel",
     "click button.delete": "deleteMessage",
-    "click button.copy_link": "copyLink"
-    
+    // "click button.copy_link": "copyLink"
   },
-  
-  copyLink: function (event) {
-    // var model = this.messages.get($container.attr('id'));
-    // var client = new ZeroClipboard(event.currentTarget,{
-    //   moviePath: '/assets/ZeroClipboard.swf'
-    // });
-    // client.setText(event.currentTarget);
-    client.clip(event.currentTarget);
-    this.client.on( 'copy', function (event) {
-      event.clipboardData.setData( "text/plain", "Copy me!" );
-    });
-    debugger;
-    console.log("should be set");
-  },
-  
   
   deleteMessage: function (event) {
     var view = this;
@@ -51,7 +29,6 @@ Snapmsg.Views.MessagesShow = Backbone.View.extend({
     var model = this.messages.get($container.attr('id'));
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
     $container.append(messageEditView.render().$el);
-    // console.log(messageEditView.render().$el );
   },
   
   editCancel: function(event){
@@ -78,10 +55,12 @@ Snapmsg.Views.MessagesShow = Backbone.View.extend({
   
   render: function(){
     var renderedContent = this.template({
+      user: this.user,
       messages: this.messages
     });
     this.$el.html(renderedContent);
     return this;
+
   }
   
 })
