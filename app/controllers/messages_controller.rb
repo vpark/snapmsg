@@ -37,7 +37,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     
     if @message.viewed == false
-      @message.update_attributes(viewed: true)
+      # @message.update_attributes(viewed: true)
       respond_with(@message)
     else
       respond_with(nil)

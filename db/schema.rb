@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325081602) do
+ActiveRecord::Schema.define(version: 20140331210645) do
 
   create_table "messages", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "title",                      null: false
+    t.text     "content",                    null: false
     t.boolean  "viewed",     default: false
-    t.integer  "user_id"
+    t.integer  "user_id",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "timer",      default: 1,     null: false
   end
 
   create_table "users", force: true do |t|

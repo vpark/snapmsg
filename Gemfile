@@ -49,3 +49,7 @@ gem 'better_errors'
 
 gem 'devise'
 gem 'backbone-on-rails'
+
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
