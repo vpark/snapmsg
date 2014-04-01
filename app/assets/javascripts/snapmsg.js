@@ -9,7 +9,7 @@ window.Snapmsg = {
     user.fetch({
       success: function(){
         
-        if (user.isNew) {
+        if (user.id == undefined) {
           console.log('User is not logged in');
           new Snapmsg.Routers.SimpleRouter($container);
           Backbone.history.start();
