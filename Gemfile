@@ -55,3 +55,6 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'pg'
+
+# gem 'activeuuid'
+# gem 'webdack-uuid_migration'

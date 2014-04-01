@@ -36,9 +36,9 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find(params[:id])
     
-    if @message.viewed == false
+    if @message.opened == false
       # uncomment to allow view only once
-      # @message.update_attributes(viewed: true)
+      # @message.update_attributes(opened: true)
       respond_with(@message)
     else
       respond_with(nil)
