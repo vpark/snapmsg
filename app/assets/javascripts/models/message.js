@@ -4,7 +4,9 @@ Snapmsg.Models.Message = Backbone.Model.extend({
     // console.log("model", this.id);
     // this.url = options.user.url() + "/messages";
     // this.url = "api/messages/" + options.id
-    console.log(options)
+    if (options.id) {
+      this.url = "api/messages/" + options.id
+    }
   },
   
   // url: "api/messages" + "/" + this.id

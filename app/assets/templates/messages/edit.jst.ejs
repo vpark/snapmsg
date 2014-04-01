@@ -9,6 +9,9 @@
   <!-- <input id="message_content" rows="10" col="20"></textarea> -->
   <input id="message_content" type="text" value="<%=message.escape("content")%>">
   <br>
+  <label for="message_timer">Timer:</label>
+  <input id="message_timer" type="number" min=1 max =10  value=<%=message.escape("timer")%>>
+  <br>
   <button class="cancel">Cancel</button>
   <input type="submit">
 </form>

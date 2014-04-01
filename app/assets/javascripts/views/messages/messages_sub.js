@@ -10,8 +10,13 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     "submit form.message_edit": "editConfirm",
     "click button.cancel": "editCancel",
     "click button.delete": "deleteMessage",
+    "click container": "clearForm"
     // "click button.copy_link": "copyLink"
   },
+  
+  clearForm: function() {
+    // add feature so if you click outside the list, it hides all messages and whatnot. should couple this with an "are you sure" modal
+  }
   
   deleteMessage: function (event) {
     var view = this;
@@ -25,6 +30,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   edit: function(event){
+     $(".message_edit").remove();
     var $container = $(event.currentTarget).parent();
     var model = this.messages.get($container.attr('id'));
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
@@ -41,11 +47,14 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     var $modelForm = $(event.currentTarget)
     var $container = $(event.currentTarget).closest('li');
     var model = this.messages.get($container.attr('id'));
+    console.log(model);
     // debugger;
     model.save({
       title: $modelForm.find('#message_title').val(),
-      content: $modelForm.find('#message_content').val()
+      content: $modelForm.find('#message_content').val(),
+      timer: $modelForm.find('#message_timer').val()
     },{ success: function(){
+      // console.log('edit',$modelForm.find('#message_timer').val())
       view.render();
         }}
       );
