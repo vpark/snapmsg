@@ -12,8 +12,8 @@
 <% var counter = message.get("timer"); %>
 <% var interval = setInterval(function(){ %>
   <% if (counter == 0) { %>
-    <% $('#message-title').empty(); %>
-    <% $('#message-content').empty(); %>
+    <% $('#message-title').remove(); %>
+    <% $('#message-content').remove(); %>
     <% clearInterval(interval); %>
   <% } %>
     <% $('#timer').html("<div id='timer-countdown'>Counter: " + counter + "</div>")%>

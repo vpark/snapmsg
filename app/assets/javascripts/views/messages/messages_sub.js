@@ -16,7 +16,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   clearForm: function() {
     // add feature so if you click outside the list, it hides all messages and whatnot. should couple this with an "are you sure" modal
-  }
+  },
   
   deleteMessage: function (event) {
     var view = this;
