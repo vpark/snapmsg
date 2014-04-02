@@ -168,3 +168,11 @@ section.message-image {
   //@media screen and (max-width: 320px){
     //  .rw-sentence { font-size: 9px; }
     //}
+    
+    #home { 
+    background: url('/assets/bg1.jpg') 50% 0 repeat fixed; min-height: 1000px;
+    }
+ 
+    #about { 
+    background: url('/assets/bg2.jpg') 50% 0 no-repeat; min-height: 1000px;  
+    }
