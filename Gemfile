@@ -51,3 +51,5 @@ gem 'devise'
 gem 'backbone-on-rails'
 
 gem 'pg'
+
+gem 'font-awesome-rails'
