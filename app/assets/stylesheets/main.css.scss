@@ -16,14 +16,64 @@ body {
 }
 
 section#header {
-background-color: rgb(103, 244, 164);
+  background-color: rgb(103, 244, 164);
   height: 500px;
   text-align: center;
   padding-top: 250px;
+  //  font-family: 'Bree Serif';
 }
 
-section#header > h1,h3 {
-  padding: 0 25%;
+section#header > div,h3 {
+  padding: 0%;
   color: white;
   text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 }
+
+.word-cycle-sentence {
+float:left;
+}
+
+.word-cycle-sentence span {
+  display: inline;
+}
+
+
+
+.word-cycle span {
+  position: absolute;
+  opacity: 1;
+  overflow: hidden;
+  width: 100%;
+  float: right;
+}
+
+//.word-cycle span{
+//  -webkit-animation: rotateWordsFirst 18s linear infinite 0s;
+//  -moz-animation: rotateWordsFirst 18s linear infinite 0s;
+//  -ms-animation: rotateWordsFirst 18s linear infinite 0s;
+//  -o-animation: rotateWordsFirst 18s linear infinite 0s;
+//  animation: rotateWordsFirst 18s linear infinite 0s;
+//}
+//.word-cycle span:nth-child(2) { 
+//    -webkit-animation-delay: 3s; 
+//}
+//.word-cycle span:nth-child(3) { 
+//    -webkit-animation-delay: 6s; 
+//}
+//.word-cycle span:nth-child(4) { 
+//    -webkit-animation-delay: 9s; 
+//}
+//.word-cycle span:nth-child(5) { 
+//    -webkit-animation-delay: 12s; 
+//}
+//.word-cycle span:nth-child(6) {  
+//    -webkit-animation-delay: 15s; 
+//}
+//
+//@-webkit-keyframes rotateWordsFirst {
+//  0% { opacity: 1; -webkit-animation-timing-function: ease-in; height: 0px; }
+//  8% { opacity: 1; height: 60px; }
+//  19% { opacity: 1; height: 60px; }
+//  25% { opacity: 0; height: 60px; }
+//  100% { opacity: 0; }
+//}
