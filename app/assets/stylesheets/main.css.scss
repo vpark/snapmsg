@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  padding-top: 50px;
+  padding-top: 197px;
 }
 
 .page-wrapper {
@@ -11,8 +11,15 @@ body {
   width: 100%;
   margin-top: -70px;
 }
-.navbar-default {
-  background: rgba(248, 248, 248, 0.8);
+.navbar {
+  background: rgba(25, 11, 11, 0.8);
+}
+
+.navbar-brand, .navbar-nav li a{
+  line-height: 125px;
+  height: 125px;
+  font-size: 25px;
+  padding-top: 0;
 }
 
 div#header {
@@ -37,6 +44,10 @@ div#features {
   text-align: center;
   width: 75%;
   padding-top: 50px;
+}
+
+.col-md-4 {
+  font-size: 150%;
 }
 
 .fa-comments {
