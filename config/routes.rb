@@ -7,6 +7,6 @@ Snapmsg::Application.routes.draw do
   end
 
   root to:  "main#index"
-  
+  resources :emailers, only: [:new, :create]
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 end

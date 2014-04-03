@@ -52,4 +52,6 @@ gem 'backbone-on-rails'
 
 gem 'pg'
 
+
 gem 'font-awesome-rails'
+gem 'active_attr'
