@@ -1,17 +1,29 @@
-<ul class="msg-ul">
-  <% messages.each(function (message){ %>
-  <li class="msg-li">
-    <% if (message.escape("opened") == "false") { %>
-      <span class="msg-td1"><i class="fa fa-question"></i></span>
-    <% } else { %>
-      <span class="msg-td1">Opened</span>
-    <% } %>
-    <span class="msg-td2" id=<%= message.id %>><%= message.escape("title") %></span>
-    <span class="copy_link msg-td3" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>">
-      Copy Link
-    </span>
-    <span class="edit msg-td4">Edit</span>
-    <span class="delete msg-td5">Delete</span>
-  </li>
-  <% }); %>
-</ul>
+<table class="table table-striped table-hover msg-table">
+  <thead class="msg-thead">
+    <tr class="msg-tr">
+      <th class="msg-td1">Status</th>
+      <th class="msg-td2">Title</th>
+      <th class="msg-td3">Link</th>
+      <th class="msg-td4">Edit</th>
+      <th class="msg-td5">Delete</th>
+    </tr>
+  </thead>
+    <tbody>
+      <% messages.each(function (message){ %>
+      <tr class="msg-tr">
+        <% if (message.escape("opened") == "false") { %>
+          <td class="msg-td1"><i class="fa fa-eye-slash"></i> </td>
+        <% } else { %>
+          <td class="msg-td1"><i class="fa fa-eye"></i></td>
+        <% } %>
+        
+        <td class="msg-td2" id=<%= message.id %>><%= message.escape("title") %></td>
+        <td class="copy_link msg-td3" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>">
+          <i class="fa fa-link"></i>
+        </td>
+        <td class="edit msg-td4"><i class="fa fa-pencil-square-o"></i></td>
+        <td class="delete msg-td5"><i class="fa fa-trash-o"></i></td>      
+      </tr>
+      <% }); %>
+    </tbody>
+</table>
