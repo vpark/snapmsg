@@ -57,3 +57,4 @@ gem 'font-awesome-rails'
 gem 'active_attr'
 
 gem 'rest-client'
+gem 'figaro'
