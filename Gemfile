@@ -55,3 +55,5 @@ gem 'pg'
 
 gem 'font-awesome-rails'
 gem 'active_attr'
+
+gem 'rest-client'

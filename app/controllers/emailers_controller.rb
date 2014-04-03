@@ -9,7 +9,8 @@ class EmailersController < ApplicationController
       send_simple_message(@emailer)
       redirect_to root_url, notice: "Message sent! Thank you for contacting us."
     else
-      render "new"
+      flash[:error] = "All fields are required."
+      redirect_to root_url
     end
   end
   
