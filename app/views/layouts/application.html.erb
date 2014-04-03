@@ -27,7 +27,7 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="">Home</a></li>
+          <li><a href="../#/users/<%= current_user.id %>/messages">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           
@@ -37,7 +37,7 @@
               <%= current_user.email %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="../#/users/<%= current_user.id%>/messages/new">New Message</a></li>
+              <li><a href="../#/users/<%= current_user.id %>/messages/new">New Message</a></li>
               <li><a href="#">Statistics</a></li>
               <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
               <li class="divider"></li>
