@@ -18,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="">SnapMsg</a>
+        <a class="navbar-brand" href="http://localhost:3000">SnapMsg</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,11 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../#/users/<%= current_user.id %>/messages">Home</a></li>
+        <% if user_signed_in? %>
+          <li><a href="../#/users/<%= current_user.id %>/messages">My Messages</a></li>
+          <% else %>
+          <li><%= link_to "Home", root_path %></li>
+          <% end %>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           
@@ -44,7 +48,7 @@
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             </ul>
             <% else %>
-          <li><a href="#">Sign In</a></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
             <% end %>
           </li>
         </ul>

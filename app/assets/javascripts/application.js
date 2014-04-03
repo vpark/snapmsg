@@ -15,7 +15,7 @@
 //= require bootstrap.min
 //= require jquery.serializeJSON
 //= require ZeroClipboard
-//= require turbolinks
+//  require turbolinks
 //= require underscore
 //= require backbone
 //= require snapmsg
