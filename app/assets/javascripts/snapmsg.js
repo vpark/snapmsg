@@ -20,7 +20,7 @@ window.Snapmsg = {
             success: function(){
               console.log("messages fetched");
               new Snapmsg.Routers.AppRouter(user, messages, $container);
-              Backbone.history.start({pushState:true});
+              Backbone.history.start();
             }
           });
         } 

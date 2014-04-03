@@ -1,0 +1,15 @@
+#show_messages{
+  width: 80%;
+  margin: auto;
+}
+
+.msg-ul {
+  border-radius: 25px;
+  background-color: rgb(215, 215, 215);
+  list-style-position: inside;
+}
+
+.msg-li {
+  padding-bottom: 10px;
+}
+

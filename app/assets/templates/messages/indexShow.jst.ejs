@@ -1,21 +1,17 @@
-<ul>
+<ul class="msg-ul">
   <% messages.each(function (message){ %>
-    <li id=<%= message.id %>><%= message.escape("title") %>
-      <button class="copy_link" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>">Copy Link</button>
-      <button class="edit">Edit</button>
-      <button class="delete">Delete</button>
-      
-      <% if (message.escape("opened") == "false") { %>
-       <%console.log(message.escape("opened"));%>
-<button class="btn-success">Unopened</button>
-        <% } else { %>
-<button class="btn-warning">Opened</button>
-          <% } %>
-      
-      
-      
-      
-    </li>
-    <br>
-    <% }); %>
-  </ul>
+  <li class="msg-li">
+    <% if (message.escape("opened") == "false") { %>
+      <span class="msg-td1"><i class="fa fa-question"></i></span>
+    <% } else { %>
+      <span class="msg-td1">Opened</span>
+    <% } %>
+    <span class="msg-td2" id=<%= message.id %>><%= message.escape("title") %></span>
+    <span class="copy_link msg-td3" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>">
+      Copy Link
+    </span>
+    <span class="edit msg-td4">Edit</span>
+    <span class="delete msg-td5">Delete</span>
+  </li>
+  <% }); %>
+</ul>
