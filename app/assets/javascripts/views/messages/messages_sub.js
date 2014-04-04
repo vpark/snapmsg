@@ -7,7 +7,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   events: {
     "click .edit": "edit",
-    "submit .message_edit": "editConfirm",
+    // "submit form.message_edit": "editConfirm",
     "click .cancel": "editCancel",
     "click .delete": "deleteMessage",
     "click container": "clearForm"
@@ -30,29 +30,31 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   edit: function(event){
-     $(".message_edit").remove();
-    var $tr = $(event.currentTarget).parent();
+     $("div.message_edit").remove();
+    var $tr = $(event.currentTarget).closest('tr');
+    // debugger;
     var model = this.messages.get($tr.attr('id'));
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
-    $tr.after(messageEditView.render().$el);
+    $tr.html(messageEditView.render().$el);
   },
   
   editCancel: function(event){
-    $(event.currentTarget).closest('.message_edit').remove();
+    $(event.currentTarget).closest('div.message_edit').remove();
+    //has to swap out the view
   },
   
   editConfirm: function(event){
     event.preventDefault();
     var view = this;
-    var $modelForm = $(event.currentTarget)
+    var $modelForm = $(event.currentTarget);
     var model = this.messages.get($modelForm.attr('id'));
-    debugger;
+    // debugger;
     model.save({
       title: $modelForm.find('#message_title').val(),
       content: $modelForm.find('#message_content').val(),
       timer: parseInt($modelForm.find('#message_timer').val(), 10)
     },{ success: function(){
-      console.log('edit',$modelForm.find('#message_timer').val())
+      // console.log('edit',$modelForm.find('#message_timer').val())
       view.render();
         }}
       );

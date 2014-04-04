@@ -7,7 +7,7 @@ Snapmsg.Views.MessagesIndex = Backbone.View.extend({
   
   events: {
     "click button.refresh": "refresh",
-    "click a": "renderMessagesNew",
+    "click .new-msg": "renderMessagesNew",
   },  
   
   renderMessagesNew: function(){
