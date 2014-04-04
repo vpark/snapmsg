@@ -6,12 +6,25 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   events: {
-    "click .edit": "edit",
+    "click .msg-li-btn-edit": "edit",
     "submit form.message_edit": "editConfirm",
     "click .cancel": "editCancel",
-    "click .delete": "deleteMessage",
-    "click container": "clearForm"
-    // "click button.copy_link": "copyLink"
+    "click .msg-li-btn-delete": "deleteMessage",
+    "click .msg-li-title": "showFull"
+    // "click .msg-ul": "clearForm"
+  },
+  
+  showFull: function (event) {
+    var $li = $(event.currentTarget).closest('li');
+    var model = this.messages.get($li.attr('id'));
+    var $content = $("<div class='panel-body msg-li-content'>" +
+                       "Content: " + model.escape("content") +
+                       "<br>" +
+                       "Timer: " + model.escape("timer") +
+                     "</div>");
+
+    $li.append($content);
+    // show timer and the content upon clicking
   },
   
   clearForm: function() {
@@ -20,8 +33,8 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   deleteMessage: function (event) {
     var view = this;
-    var $tr = $(event.currentTarget).parent();
-    var model = this.messages.get($tr.attr('id'));
+    var $li = $(event.currentTarget).closest('li');
+    var model = this.messages.get($li.attr('id'));
     model.destroy({
       success: function(){
         view.render();
@@ -30,8 +43,9 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   edit: function(event){
-     $("div.message_edit").remove();
-    var $tr = $(event.currentTarget).closest('tr');
+     $(".msg-li-content").remove();
+     var $li = $(event.currentTarget).closest('li');
+     var model = this.messages.get($li.attr('id'));
     // debugger;
     var model = this.messages.get($tr.attr('id'));
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });

@@ -1,32 +1,66 @@
 <ul class="msg-ul">
   <% messages.each(function (message){ %>
-  <li class="msg-li">
-    <h3 class="msg-li-title">      
-        <tr class="msg-tr" id="<%= message.id %>">
-          <% if (message.escape("opened") == "false") { %>
-            <i class="fa fa-eye-slash"></i>
-          <% } else { %>
-            <i class="fa fa-eye"></i>
-          <% } %>
-          
-      <%= message.escape("title") %>  
-    </h3>
-        
-    <p class="msg-li-content"><%= message.escape("content") %>
-    </p>
-
-    <div class="msg-li-settings">
-      <button type="button" class="btn btn-primary">Copy Link</button>
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary">Settings</button>
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a class="" href="#">Edit Message</a></li>
-          <li><a href="#">Delete Message</a></li>
-        </ul>
-      </div>
-    </div>
-        
-  </li>
+    <% if (message.escape("opened") == "false") { %>
+    <li class="panel panel-primary msg-li" id="<%= message.id %>">
+        <div class="panel-heading">
+          <h3 class="panel-title msg-li-title">      
+              <i class="fa fa-square-o"></i>
+    <% } else { %>
+    <li class="panel panel-warning msg-li" id="<%= message.id %>">
+        <div class="panel-heading">
+          <h3 class="panel-title msg-li-title">
+            <i class="fa fa-check-square-o"></i> 
+    <% } %>
+    <%= message.escape("title") %>  
+            <div class="msg-li-btns">
+              <i class="fa fa-link"></i> 
+              <i class="fa fa-edit msg-li-btn-edit"></i> 
+              <i class="fa fa-trash-o msg-li-btn-delete"></i> 
+            </div>
+          </h3>
+        </div>
+    </li>
   <% }); %>
 </ul>
+
+<form class="form-horizontal msg-li msg-edit-form">
+  <fieldset>
+    <legend class="msg-edit-legend">Edit Message</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Title</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="Email" mouseev="true" autocomplete="off" keyev="true" clickev="true">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Body</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Timer</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select" value=>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+        <br>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

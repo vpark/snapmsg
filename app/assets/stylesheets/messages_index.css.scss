@@ -1,8 +1,7 @@
-$test-variable: 1px;
 $msg-index-width: 750px;
 
 .msg-index-wrapper {
-  text-align: center;
+  //  text-align: center;
 }
 
 .msg-index-buttons {
@@ -22,75 +21,78 @@ $msg-index-width: 750px;
 .msg-li {
   width: $msg-index-width;
   display: block;
-  border-radius: 25px;
-  background-color: rgba(215,215,215,1);
+  //  border-radius: 25px;
+  //  background-color: rgba(215,215,215,1);
   margin: 0 auto 20px auto;
 }
 
-.msg-li-title {
-  margin-top: 15px;
-  font-size: 200%;
+//.msg-li-title {
+//  margin-top: 15px;
+//  font-size: 200%;
+//}
+//
+//.msg-li-content {
+//  margin-top: 15px;
+//  margin-bottom: 30px;
+//  font-size: 150%;
+//}
+//.msg-li-content, .msg-li-title {
+//  margin-left: 30px;
+//  text-align: left;
+//  width: 100%;
+//}
+//
+//.msg-li-settings {
+//  background-color: gray;
+//  border-bottom-left-radius: 25px;
+//  border-bottom-right-radius: 25px;
+//  height: 70px;
+//  font-size: 50px;
+//  text-align: right;
+//  padding-right: 30px;
+//  color: white;
+//}
+
+.msg-li-btns {
+  float:right;
+  font-size: 23px;
+  margin-top: -3px;
 }
 
-.msg-li-content {
-  margin-top: 15px;
-  margin-bottom: 30px;
-  font-size: 150%;
-}
-.msg-li-content, .msg-li-title {
-  margin-left: 30px;
-  text-align: left;
-  width: 100%;
-}
-
-.msg-li-settings {
-  background-color: gray;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  height: 70px;
-  font-size: 50px;
-  text-align: right;
-  padding-right: 30px;
-  color: white;
-}
-
-.msg-li-settings-symbol-1 {
-  padding-right: 10px;
+.msg-li-btns i:hover {
+  color: gray;
 }
 
 .refresh {
   float: right;
+  clear: right;
 }
 .new-msg {
   float: left;
+  clear: left;
 }
 
 .refresh, .new-msg {
   width: 150px;
   margin-top: 50px;
-  margin-bottom: 30px;
 }
 
-/*#show_messages{
-width: 80%;
-margin: auto;
+.msg-edit-form {
+  padding-right: 0px;
+  background-color: rgba(44, 62, 80, 1);
+  cursor: pointer;
+  padding: 0px 50px;
+  border-radius: 5px;
+
 }
 
-.msg-ul {
-border-radius: 25px;
-background-color: rgb(215, 215, 215);
-list-style-position: inside;
+$msg-edit-form-padding: 30px;
+
+.msg-edit-legend {
+  padding-top: $msg-edit-form-padding;
+  color: white;
 }
 
-.msg-li {
-padding-bottom: 10px;
+.msg-edit-btns {
+  padding-bottom: $msg-edit-form-padding;
 }
-
-
-
-.msg-table {
-background-color: rgba(215,215,215,1);
-border-radius: 15px;
-}*/
-
-
