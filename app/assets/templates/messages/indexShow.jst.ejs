@@ -1,55 +1,32 @@
 <ul class="msg-ul">
-      <li class="msg-li">
-        <h3 class="msg-li-title">Title here
-        </h3>
+  <% messages.each(function (message){ %>
+  <li class="msg-li">
+    <h3 class="msg-li-title">      
+        <tr class="msg-tr" id="<%= message.id %>">
+          <% if (message.escape("opened") == "false") { %>
+            <i class="fa fa-eye-slash"></i>
+          <% } else { %>
+            <i class="fa fa-eye"></i>
+          <% } %>
+          
+      <%= message.escape("title") %>  
+    </h3>
         
-        <p class="msg-li-content">This is a story about a child who loved to play games. cool
-        </p>
-        
-        <div class="msg-li-settings">
-          <button type="button" class="btn btn-primary">Settings</button>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary">Settings</button>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Edit Message</a></li>
-              <li><a href="#">Delete Message</a></li>
-            </ul>
-          </div>
-        </div>
-        
-      </li>
+    <p class="msg-li-content"><%= message.escape("content") %>
+    </p>
 
+    <div class="msg-li-settings">
+      <button type="button" class="btn btn-primary">Copy Link</button>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary">Settings</button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a class="" href="#">Edit Message</a></li>
+          <li><a href="#">Delete Message</a></li>
+        </ul>
+      </div>
+    </div>
+        
+  </li>
+  <% }); %>
 </ul>
-
-
-
-<!-- <table class="table table-hover msg-table">
-  <thead class="msg-thead">
-    <tr class="msg-tr">
-      <th class="msg-td1">Status</th>
-      <th class="msg-td2">Title</th>
-      <th class="msg-td3">Link</th>
-      <th class="msg-td4">Edit</th>
-      <th class="msg-td5">Delete</th>
-    </tr>
-  </thead>
-    <tbody>
-      <% messages.each(function (message){ %>
-      <tr class="msg-tr" id="<%= message.id %>">
-        <% if (message.escape("opened") == "false") { %>
-          <td class="msg-td1"><i class="fa fa-eye-slash"></i> </td>
-        <% } else { %>
-          <td class="msg-td1"><i class="fa fa-eye"></i></td>
-        <% } %>
-        
-        <td class="msg-td2" id=<%= message.id %>><%= message.escape("title") %></td>
-        <td class="copy_link msg-td3" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>">
-          <i class="fa fa-link"></i>
-        </td>
-        <td class="msg-td4"><button class="edit"><i class="fa fa-pencil-square-o"></i></button></td>
-        <td class="delete msg-td5"><i class="fa fa-trash-o"></i></td>      
-      </tr>
-      <% }); %>
-    </tbody>
-</table> -->

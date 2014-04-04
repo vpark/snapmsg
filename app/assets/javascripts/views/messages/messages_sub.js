@@ -7,7 +7,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   events: {
     "click .edit": "edit",
-    // "submit form.message_edit": "editConfirm",
+    "submit form.message_edit": "editConfirm",
     "click .cancel": "editCancel",
     "click .delete": "deleteMessage",
     "click container": "clearForm"
