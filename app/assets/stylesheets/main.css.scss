@@ -2,17 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body, .page-wrapper {
+  height: 100%;
+}
+
 body {
-  padding-top: 197px;
+  padding-top: 125px;
 }
 
 .page-wrapper {
   padding: 0;
   width: 100%;
-  margin-top: -70px;
+  background-color: rgb(183, 247, 242);
 }
 .navbar {
   background: rgba(25, 11, 11, 0.8);
+}
+
+.navbar-brand {
+  font-size: 375%;
 }
 
 .navbar-brand, .navbar-nav li a{
@@ -20,10 +28,6 @@ body {
   height: 125px;
   font-size: 25px;
   padding-top: 0;
-}
-
-.navbar-brand {
-  font-size: 375%;
 }
 
 div#header {
@@ -171,6 +175,7 @@ section.message-image {
   80% { opacity: 0; }
   100% { opacity: 0; }
 }
+
 @media screen and (max-width: 768px){
   .rw-sentence { font-size: 18px; }
 }

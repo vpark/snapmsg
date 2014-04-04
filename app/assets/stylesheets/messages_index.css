@@ -46,15 +46,13 @@
   color: white;
 }
 
-.msg-li-settings-edit-symbol {
+.msg-li-settings-symbol-1 {
   padding-right: 10px;
 }
 
 .refresh {
   float: right;
   margin-right: 20%;
-
-
 }
 .new-msg {
   float: left;
@@ -62,8 +60,9 @@
 }
 
 .refresh, .new-msg {
-  width: 7.5%;
-  margin-bottom: 50px;
+  width: 10%;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 /*#show_messages{
