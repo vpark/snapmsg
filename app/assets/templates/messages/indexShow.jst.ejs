@@ -10,7 +10,7 @@
   </thead>
     <tbody>
       <% messages.each(function (message){ %>
-      <tr class="msg-tr">
+      <tr class="msg-tr" id="<%= message.id %>">
         <% if (message.escape("opened") == "false") { %>
           <td class="msg-td1"><i class="fa fa-eye-slash"></i> </td>
         <% } else { %>

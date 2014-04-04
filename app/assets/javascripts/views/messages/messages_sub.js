@@ -6,10 +6,10 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   events: {
-    "click button.edit": "edit",
-    "submit form.message_edit": "editConfirm",
-    "click button.cancel": "editCancel",
-    "click button.delete": "deleteMessage",
+    "click .edit": "edit",
+    "submit .message_edit": "editConfirm",
+    "click .cancel": "editCancel",
+    "click .delete": "deleteMessage",
     "click container": "clearForm"
     // "click button.copy_link": "copyLink"
   },
@@ -20,8 +20,8 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   deleteMessage: function (event) {
     var view = this;
-    var $container = $(event.currentTarget).parent();
-    var model = this.messages.get($container.attr('id'));
+    var $tr = $(event.currentTarget).parent();
+    var model = this.messages.get($tr.attr('id'));
     model.destroy({
       success: function(){
         view.render();
@@ -31,30 +31,28 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   edit: function(event){
      $(".message_edit").remove();
-    var $container = $(event.currentTarget).parent();
-    var model = this.messages.get($container.attr('id'));
+    var $tr = $(event.currentTarget).parent();
+    var model = this.messages.get($tr.attr('id'));
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
-    $container.append(messageEditView.render().$el);
+    $tr.after(messageEditView.render().$el);
   },
   
   editCancel: function(event){
-    $(event.currentTarget).closest('div.message_edit').remove();
+    $(event.currentTarget).closest('.message_edit').remove();
   },
   
   editConfirm: function(event){
     event.preventDefault();
     var view = this;
     var $modelForm = $(event.currentTarget)
-    var $container = $(event.currentTarget).closest('li');
-    var model = this.messages.get($container.attr('id'));
-    console.log(model);
-    // debugger;
+    var model = this.messages.get($modelForm.attr('id'));
+    debugger;
     model.save({
       title: $modelForm.find('#message_title').val(),
       content: $modelForm.find('#message_content').val(),
-      timer: $modelForm.find('#message_timer').val()
+      timer: parseInt($modelForm.find('#message_timer').val(), 10)
     },{ success: function(){
-      // console.log('edit',$modelForm.find('#message_timer').val())
+      console.log('edit',$modelForm.find('#message_timer').val())
       view.render();
         }}
       );
