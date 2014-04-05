@@ -20,7 +20,7 @@ Snapmsg.Views.MessagesNew = Backbone.View.extend({
     event.preventDefault();
     var view = this;
     var newMessage = new Snapmsg.Models.Message([],{collection: this.messages});
-    var $form = $(event.currentTarget).closest('form');debugger;
+    var $form = $(event.currentTarget).closest('form');
     
     newMessage.save({
       title: $form.find('#msg-new-title').val(),

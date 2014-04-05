@@ -2,15 +2,21 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   initialize: function(options){
     this.user = options.user;
     this.messages = options.messages;
+    this.prevShow = undefined;
     console.log('in MessagesSub');
-  },
+  },  
+  
+  template: JST["messages/indexShow"],
+
+  templateFull: JST["messages/indexShowFull"],
+  
   
   events: {
     "click .msg-li-btn-edit": "edit",
     "click .msg-edit-cancel": "editCancel",
     "click .msg-edit-submit": "editSubmit",
     "click .msg-li-btn-delete": "deleteMessage",
-    "click .msg-li-title": "showFull",
+    "click .msg-li": "showFull",
     // "click .msg-ul": "test"
     "click .msg-li-btn-link": "copyLink"
   },
@@ -19,14 +25,18 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     this.clearForm();
     var $li = $(event.currentTarget).closest('li');
     var model = this.messages.get($li.attr('id'));
-    var $content = $("<div class='panel-body msg-li-content'>" +
-    "Content: " + model.escape("content") +
-    "</div>");
-    var $timer = $("<div class='msg-li-timer'>" +
-    model.escape("timer") +
-    "</div>");
-
-    $li.append($content.prepend($timer));
+    
+    var showFullContent = this.templateFull({
+      message: model
+    });
+    
+    if (this.prevShow != model) {
+      $li.append(showFullContent);
+      $('.msg-li-body').show('slow', function(){
+        $('.msg-li-timer').show();
+      });
+      this.prevShow = model;
+    }
     // show timer and the content upon clicking
   },
   
@@ -38,7 +48,9 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   clearForm: function() {
-    $('.msg-li-content').remove();
+    $('.msg-li-body').slideUp('slow', function(){
+      this.remove();
+    });
   },
   
   deleteMessage: function (event) {
@@ -80,25 +92,20 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
       title: $form.find('#msg-edit-title').val(),
       content: $form.find('#msg-edit-content').val(),
       timer: parseInt($form.find('#msg-edit-timer').val(), 10)
-    },{ success: function(){
-      // console.log('edit',$modelForm.find('#message_timer').val())
-      view.render();
-    }}
-  );
-},
-  
-template: JST["messages/indexShow"],
+    },{
+      success: function(){
+        // console.log('edit',$modelForm.find('#message_timer').val())
+        view.render();
+      }
+    });
+  },
 
-templateFull: JST["messages/indexShowFull"],
-  
-render: function(){
-  var renderedContent = this.template({
-    user: this.user,
-    messages: this.messages
-  });
-  this.$el.html(renderedContent);
-  return this;
-
-}
-  
-})
+  render: function(){
+    var renderedContent = this.template({
+      user: this.user,
+      messages: this.messages
+    });
+    this.$el.html(renderedContent);
+    return this;
+  }
+});

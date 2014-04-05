@@ -1,22 +1,18 @@
-<div id="message-title">
-  Title: 
-  <%= message.get("title")%>
-</div>
-
-<div id="message-content">
-  Content: 
-  <%= message.get("content")%>
-</div>
-<div id='timer'>
-</div>
+<li class="panel panel-primary msg-li" id="<%= message.id %>">
+  <div class="panel-heading">
+    <h3 class="panel-title msg-li-title"><%= message.get("title")%></h3>
+  </div>
+  <div class='panel-body msg-li-body'>
+    <div class='msg-li-content'><%=message.escape("content")%></div>
+    <div class='msg-li-timer'></div>
+  </div>
+</li>
 <% var counter = message.get("timer"); %>
 <% var interval = setInterval(function(){ %>
   <% if (counter == 0) { %>
-    <% $('#message-title').remove(); %>
-    <% $('#message-content').remove(); %>
+    <% $('.msg-li').remove(); %>
     <% clearInterval(interval); %>
   <% } %>
-    <% $('#timer').html("<div id='timer-countdown'>Counter: " + counter + "</div>")%>
-    <%  counter--; %>
-<%  }, 1000)%> 
-  
+  <% $('.msg-li-timer').html(counter)%>
+  <%  counter--; %>
+<%  }, 1000)%>

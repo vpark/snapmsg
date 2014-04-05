@@ -51,6 +51,19 @@ $msg-index-width: 750px;
   color: gray;
 }
 
+
+.msg-li-body {
+  width: 100%;
+  display: none;
+}
+
+.msg-li-content {
+  display: inline-block;
+  height: 100%;
+  width: 670px;
+  float: left;
+}
+
 .msg-li-timer {
   text-align: center;
   border-radius: 3px;
@@ -58,11 +71,13 @@ $msg-index-width: 750px;
   float: right;
   width: 35px;
   height: 35px;
-  background-color: rgb(79, 79, 79);
+  background-color: #4f4f4f;
   font-size: 25px;
   color: white;
   padding-right: 1px;
+  display: none;
 }
+
 
 $msg-edit-form-padding: 30px;
 
