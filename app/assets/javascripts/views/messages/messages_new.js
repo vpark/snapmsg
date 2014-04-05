@@ -2,30 +2,36 @@ Snapmsg.Views.MessagesNew = Backbone.View.extend({
   initialize: function(options){
     this.user = options.user;
     this.messages = options.messages;
+    this.indexView = options.indexView;
     console.log('messagesNewView initialized');
   },
   
   events: {
-    "submit form": "submit",
-    "click button#cancel": "cancel",
+    "click .msg-new-submit": "newSubmit",
+    "click .msg-new-cancel": "newCancel",
   },
   
-  cancel: function(event){
+  newCancel: function(event){
     event.preventDefault();
-    console.log('fired');
     this.$el.empty();
   },
   
-  submit: function(event){
+  newSubmit: function(event){
     event.preventDefault();
+    var view = this;
     var newMessage = new Snapmsg.Models.Message([],{collection: this.messages});
+    var $form = $(event.currentTarget).closest('form');debugger;
+    
     newMessage.save({
-      title: $("#message_title").val(),
-      content: $("#message_content").val(),
+      title: $form.find('#msg-new-title').val(),
+      content: $form.find('#msg-new-content').val(),
+      timer: parseInt($form.find('#msg-new-timer').val(), 10),
       user_id: this.user.id,
     },{
       success: function(){
         console.log("saved new message");
+        view.indexView.refresh();
+        view.$el.empty();
       }
     });
   },

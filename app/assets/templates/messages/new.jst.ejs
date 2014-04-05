@@ -1,13 +1,30 @@
-<h2> New Message </h2>
-
-<form>
-  <label for="message_title">Title:</label>
-  <input id="message_title" type="text">
-  <br>
-  <label for="message_content">Content:</label>
-  <!-- <input id="message_content" rows="10" col="20"></textarea> -->
-  <input id="message_content" type="text">
-  <br>
-  <button id="cancel">Cancel</button>
-  <input type="submit">
+<form class="msg-li msg-new-form">
+  <fieldset>
+    <legend class="msg-new-legend">New Message</legend>
+    <div class="form-group msg-new-form-group">
+      <label for="msg-new-title" class="msg-new-label">Title</label>
+        <input type="text" class="form-control" id="msg-new-title" placeholder="insert title here" mouseev="true" autocomplete="off" keyev="true" clickev="true" maxlength="60">
+    </div>
+    <div class="form-group msg-new-form-group">
+      <label for="msg-new-content" class="msg-new-label">Body</label>
+        <textarea class="form-control" rows="3" id="msg-new-content" placeholder="insert your message here"></textarea>
+    </div>
+    <div class="form-group msg-new-form-group">
+      <label for="msg-new-timer" class="msg-new-label">Timer</label>
+        <select class="form-control" min="1" max="10" id="msg-new-timer">
+          <% for (var i = 10; i >= 1; i--) { %>
+            <option>
+              <%= i %>
+            </option>
+          <% } %>
+        </select>
+        <br>
+    </div>
+    <div class="form-group">
+      <div class="msg-new-btns">
+        <button class="btn btn-default msg-new-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary msg-new-submit">Submit</button>
+      </div>
+    </div>
+  </fieldset>
 </form>

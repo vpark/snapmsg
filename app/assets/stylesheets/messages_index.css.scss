@@ -6,6 +6,7 @@ $msg-index-width: 750px;
 
 .msg-index-buttons {
   width: $msg-index-width;
+  height: 100px;
   margin: auto;
 }
 
@@ -65,7 +66,7 @@ $msg-index-width: 750px;
 
 $msg-edit-form-padding: 30px;
 
-.msg-edit-form {
+.msg-edit-form, .msg-new-form {
   padding-right: 0px;
   background-color: rgba(44, 62, 80, 1);
   cursor: pointer;
@@ -74,27 +75,27 @@ $msg-edit-form-padding: 30px;
   color: white;
 }
 
-.msg-edit-legend {
+.msg-edit-legend, .msg-new-legend {
   padding-top: $msg-edit-form-padding;
   margin-bottom: 0;
   color: white;
 }
 
-.msg-edit-btns {
+.msg-edit-btns, .msg-new-btns {
   padding-bottom: $msg-edit-form-padding;
 }
 
-.msg-edit-label {
+.msg-edit-label, .msg-new-label {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.msg-edit-form-group {
+.msg-edit-form-group, .msg-new-form-group {
   margin: 0;
   padding: 0;
 }
 
-.msg-edit-btns {
+.msg-edit-btns, .msg-new-btns {
   
 }
 

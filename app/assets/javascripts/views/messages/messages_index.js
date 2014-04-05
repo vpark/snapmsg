@@ -14,7 +14,8 @@ Snapmsg.Views.MessagesIndex = Backbone.View.extend({
     event.preventDefault();
     var messagesNewView = new Snapmsg.Views.MessagesNew({
       user: this.user,
-      messages: this.messages
+      messages: this.messages,
+      indexView: this
     });
     $('.msg-new-subview').html(messagesNewView.render().$el);
   },

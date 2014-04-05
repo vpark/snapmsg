@@ -3,7 +3,7 @@
     <legend class="msg-edit-legend">Edit Message</legend>
     <div class="form-group msg-edit-form-group">
       <label for="msg-edit-title" class="msg-edit-label">Title</label>
-        <input type="text" class="form-control" id="msg-edit-title" value="<%= message.escape("title") %>" mouseev="true" autocomplete="off" keyev="true" clickev="true">
+        <input type="text" class="form-control" id="msg-edit-title" value="<%= message.escape("title") %>" mouseev="true" autocomplete="off" keyev="true" clickev="true" maxlength="60">
     </div>
     <div class="form-group msg-edit-form-group">
       <label for="msg-edit-content" class="msg-edit-label">Body</label>

@@ -8,7 +8,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   events: {
     "click .msg-li-btn-edit": "edit",
     "click .msg-edit-cancel": "editCancel",
-    "click .msg-edit-submit": "editConfirm",
+    "click .msg-edit-submit": "editSubmit",
     "click .msg-li-btn-delete": "deleteMessage",
     "click .msg-li-title": "showFull",
     // "click .msg-ul": "test"
@@ -70,7 +70,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     this.clearForm();
   },
   
-  editConfirm: function(event){
+  editSubmit: function(event){
     event.preventDefault();
     var view = this;
     var $form = $(event.currentTarget).closest('form');
