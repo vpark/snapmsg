@@ -71,14 +71,16 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
   },
   
   copyLink: function () {
-    var zeroclipboard = new ZeroClipboard($('button[data-clipboard-text]'));
+    var zeroclipboard = new ZeroClipboard($('i[data-clipboard-text]'));
     
-    zeroclipboard.on('load', function(client) {
-      console.log('loaded', ZeroClipboard.config());
       zeroclipboard.on('complete', function(client, args) {
-        console.log('complete', args, $(this));
+        console.log('complete');
+        $(this).tooltip('show');
+        $link = $(this);
+        setTimeout(function(){
+          $link.tooltip('hide');
+        }, 1000);
       });
-    });
   }
   
 });

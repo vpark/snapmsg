@@ -9,6 +9,20 @@ $msg-index-width: 750px;
   margin: auto;
 }
 
+.refresh {
+  float: right;
+  clear: right;
+}
+.new-msg {
+  float: left;
+  clear: left;
+}
+
+.refresh, .new-msg {
+  width: 150px;
+  margin-top: 50px;
+}
+
 .msg-show-subview {
   background-color: rgba(64, 255, 176, 1);
 }
@@ -26,33 +40,6 @@ $msg-index-width: 750px;
   margin: 0 auto 20px auto;
 }
 
-//.msg-li-title {
-//  margin-top: 15px;
-//  font-size: 200%;
-//}
-//
-//.msg-li-content {
-//  margin-top: 15px;
-//  margin-bottom: 30px;
-//  font-size: 150%;
-//}
-//.msg-li-content, .msg-li-title {
-//  margin-left: 30px;
-//  text-align: left;
-//  width: 100%;
-//}
-//
-//.msg-li-settings {
-//  background-color: gray;
-//  border-bottom-left-radius: 25px;
-//  border-bottom-right-radius: 25px;
-//  height: 70px;
-//  font-size: 50px;
-//  text-align: right;
-//  padding-right: 30px;
-//  color: white;
-//}
-
 .msg-li-btns {
   float:right;
   font-size: 23px;
@@ -63,36 +50,54 @@ $msg-index-width: 750px;
   color: gray;
 }
 
-.refresh {
+.msg-li-timer {
+  text-align: center;
+  border-radius: 3px;
+  display: inline-block;
   float: right;
-  clear: right;
-}
-.new-msg {
-  float: left;
-  clear: left;
+  width: 35px;
+  height: 35px;
+  background-color: rgb(79, 79, 79);
+  font-size: 25px;
+  color: white;
+  padding-right: 1px;
 }
 
-.refresh, .new-msg {
-  width: 150px;
-  margin-top: 50px;
-}
+$msg-edit-form-padding: 30px;
 
 .msg-edit-form {
   padding-right: 0px;
   background-color: rgba(44, 62, 80, 1);
   cursor: pointer;
-  padding: 0px 50px;
+  padding: 0px $msg-edit-form-padding;
   border-radius: 5px;
-
+  color: white;
 }
-
-$msg-edit-form-padding: 30px;
 
 .msg-edit-legend {
   padding-top: $msg-edit-form-padding;
+  margin-bottom: 0;
   color: white;
 }
 
 .msg-edit-btns {
   padding-bottom: $msg-edit-form-padding;
+}
+
+.msg-edit-label {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.msg-edit-form-group {
+  margin: 0;
+  padding: 0;
+}
+
+.msg-edit-btns {
+  
+}
+
+.msg-li-btn-link.zeroclipboard-is-hover {
+  color: rgb(109, 109, 109);
 }

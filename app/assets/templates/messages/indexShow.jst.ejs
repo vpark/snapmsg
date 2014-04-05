@@ -13,7 +13,7 @@
     <% } %>
     <%= message.escape("title") %>  
             <div class="msg-li-btns">
-              <i class="fa fa-link"></i> 
+              <i class="fa fa-link msg-li-btn-link" rel="tooltip" title="Copied!" data-clipboard-text="<%= window.location.origin%>/#/messages/<%=message.id%>"></i> 
               <i class="fa fa-edit msg-li-btn-edit"></i> 
               <i class="fa fa-trash-o msg-li-btn-delete"></i> 
             </div>
@@ -22,45 +22,3 @@
     </li>
   <% }); %>
 </ul>
-
-<form class="form-horizontal msg-li msg-edit-form">
-  <fieldset>
-    <legend class="msg-edit-legend">Edit Message</legend>
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Title</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email" mouseev="true" autocomplete="off" keyev="true" clickev="true">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="textArea" class="col-lg-2 control-label">Body</label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Timer</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select" value=>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-        </select>
-        <br>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>

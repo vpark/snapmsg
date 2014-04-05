@@ -1,18 +1,32 @@
-<div class="message_edit">
-<h2> Edit Message </h2>
+<form class="msg-li msg-edit-form" id="<%= message.id %>">
+  <fieldset>
+    <legend class="msg-edit-legend">Edit Message</legend>
+    <div class="form-group msg-edit-form-group">
+      <label for="msg-edit-title" class="msg-edit-label">Title</label>
+        <input type="text" class="form-control" id="msg-edit-title" value="<%= message.escape("title") %>" mouseev="true" autocomplete="off" keyev="true" clickev="true">
+    </div>
+    <div class="form-group msg-edit-form-group">
+      <label for="msg-edit-content" class="msg-edit-label">Body</label>
+        <textarea class="form-control" rows="3" id="msg-edit-content"><%= message.escape("content") %></textarea>
+    </div>
+    <div class="form-group msg-edit-form-group">
+      <label for="msg-edit-timer" class="msg-edit-label">Timer</label>
+        <select class="form-control" min="1" max="10" id="msg-edit-timer">
+          <!-- add the previous timer number as default -->
+          <% for (var i = 10; i >= 1; i--) { %>
+            <option>
+              <%= i %>
+            </option>
+          <% } %>
 
-<form class="message_edit form-horizontal" id="<%= message.id %>">
-  <label for="message_title">Title:</label>
-  <input id="message_title" type="text" value="<%=message.escape("title")%>">
-  <br>
-  <label for="message_content">Content:</label>
-  <!-- <input id="message_content" rows="10" col="20"></textarea> -->
-  <input id="message_content" type="text" value="<%=message.escape("content")%>">
-  <br>
-  <label for="message_timer">Timer:</label>
-  <input id="message_timer" type="number" min=1 max =10  value=<%=message.escape("timer")%>>
-  <br>
-  <button class="cancel">Cancel</button>
-  <input type="submit">
+        </select>
+        <br>
+    </div>
+    <div class="form-group">
+      <div class="msg-edit-btns">
+        <button class="btn btn-default msg-edit-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary msg-edit-submit">Submit</button>
+      </div>
+    </div>
+  </fieldset>
 </form>
-</div>

@@ -7,28 +7,38 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   
   events: {
     "click .msg-li-btn-edit": "edit",
-    "submit form.message_edit": "editConfirm",
-    "click .cancel": "editCancel",
+    "click .msg-edit-cancel": "editCancel",
+    "click .msg-edit-submit": "editConfirm",
     "click .msg-li-btn-delete": "deleteMessage",
-    "click .msg-li-title": "showFull"
-    // "click .msg-ul": "clearForm"
+    "click .msg-li-title": "showFull",
+    // "click .msg-ul": "test"
+    "click .msg-li-btn-link": "copyLink"
   },
   
   showFull: function (event) {
+    this.clearForm();
     var $li = $(event.currentTarget).closest('li');
     var model = this.messages.get($li.attr('id'));
     var $content = $("<div class='panel-body msg-li-content'>" +
-                       "Content: " + model.escape("content") +
-                       "<br>" +
-                       "Timer: " + model.escape("timer") +
-                     "</div>");
+    "Content: " + model.escape("content") +
+    "</div>");
+    var $timer = $("<div class='msg-li-timer'>" +
+    model.escape("timer") +
+    "</div>");
 
-    $li.append($content);
+    $li.append($content.prepend($timer));
     // show timer and the content upon clicking
   },
   
+  test: function(event){
+    console.log("bleh", $(event.currentTarget), $('.msg-ul')[0] );
+    if ( $(event.currentTarget)[0] == $('.msg-ul')[0] ) {
+      this.clearForm();
+    }
+  },
+  
   clearForm: function() {
-    // add feature so if you click outside the list, it hides all messages and whatnot. should couple this with an "are you sure" modal
+    $('.msg-li-content').remove();
   },
   
   deleteMessage: function (event) {
@@ -43,47 +53,52 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   edit: function(event){
-     $(".msg-li-content").remove();
-     var $li = $(event.currentTarget).closest('li');
-     var model = this.messages.get($li.attr('id'));
+    // $(".msg-li-content").remove();
+    var $li = $(event.currentTarget).closest('li');
+    $li.hide();
+    var model = this.messages.get($li.attr('id'));
     // debugger;
-    var model = this.messages.get($tr.attr('id'));
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
-    $tr.html(messageEditView.render().$el);
+    $li.after(messageEditView.render().$el);
   },
   
   editCancel: function(event){
-    $(event.currentTarget).closest('div.message_edit').remove();
-    //has to swap out the view
+    var $form = $(event.currentTarget).closest('form');
+    var $li = $form.parent().prev();
+    $form.remove();
+    $li.show();
+    this.clearForm();
   },
   
   editConfirm: function(event){
     event.preventDefault();
     var view = this;
-    var $modelForm = $(event.currentTarget);
-    var model = this.messages.get($modelForm.attr('id'));
-    // debugger;
+    var $form = $(event.currentTarget).closest('form');
+    var model = this.messages.get($form.attr('id'));
+    console.log("whats going on");
     model.save({
-      title: $modelForm.find('#message_title').val(),
-      content: $modelForm.find('#message_content').val(),
-      timer: parseInt($modelForm.find('#message_timer').val(), 10)
+      title: $form.find('#msg-edit-title').val(),
+      content: $form.find('#msg-edit-content').val(),
+      timer: parseInt($form.find('#msg-edit-timer').val(), 10)
     },{ success: function(){
       // console.log('edit',$modelForm.find('#message_timer').val())
       view.render();
-        }}
-      );
-  },
+    }}
+  );
+},
   
-  template: JST["messages/indexShow"],
-  
-  render: function(){
-    var renderedContent = this.template({
-      user: this.user,
-      messages: this.messages
-    });
-    this.$el.html(renderedContent);
-    return this;
+template: JST["messages/indexShow"],
 
-  }
+templateFull: JST["messages/indexShowFull"],
+  
+render: function(){
+  var renderedContent = this.template({
+    user: this.user,
+    messages: this.messages
+  });
+  this.$el.html(renderedContent);
+  return this;
+
+}
   
 })
