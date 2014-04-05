@@ -8,6 +8,7 @@ $msg-index-width: 750px;
   width: $msg-index-width;
   height: 100px;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .refresh {
@@ -25,6 +26,8 @@ $msg-index-width: 750px;
 }
 
 .msg-show-subview {
+  margin-top: -100px;
+  padding-bottom: 150px;
   background-color: rgba(64, 255, 176, 1);
 }
 
@@ -78,6 +81,9 @@ $msg-index-width: 750px;
   display: none;
 }
 
+.msg-show {
+  display: inherit;
+}
 
 $msg-edit-form-padding: 30px;
 
@@ -88,6 +94,10 @@ $msg-edit-form-padding: 30px;
   padding: 0px $msg-edit-form-padding;
   border-radius: 5px;
   color: white;
+}
+
+.msg-edit-form {
+  display: none;
 }
 
 .msg-edit-legend, .msg-new-legend {

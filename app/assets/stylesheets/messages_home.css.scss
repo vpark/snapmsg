@@ -2,26 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//bootstrap override
-
-.navbar-toggle { 
-  margin-top: 45px;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  padding-top: 125px;
-}
-
-.page-wrapper {
-  padding: 0;
-  width: 100%;
-//  background-color: rgb(183, 247, 242);
-  height: 100%;
-}
 .navbar {
   background: rgba(25, 11, 11, 0.8);
 }
@@ -37,36 +17,108 @@ body {
   padding-top: 0;
 }
 
-div#header {
+.navbar-toggle { 
+  margin-top: 45px;
+}
+
+//html override
+
+html, body {
+  height: 100%;
+  background-color: rgba(64, 255, 176, 1);
+}
+
+body {
+  padding-top: 125px;
+}
+
+//
+
+.home-container {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-container-btns {
+  margin-left: -40px;
+}
+
+.home-row-jumbo {
   background-color: #67f4a4;
-  height: 500px;
-  padding-top: 6%;
-  padding-left: 10%;
-  text-align: left;
   color: white;
   text-shadow: 1px 1px 2px #969696;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  height: 700px;
   //  font-family: 'Bree Serif';
 }
 
-div#features {
-  //  padding: 0 10%;
-  background-color: rgb(253, 255, 222);
-  height: 500px;
+.home-row-jumbo-left, .home-row-jumbo-right {
+  display: inline-block;
 }
 
-.row {
-  margin: auto;
-  text-align: center;
-  width: 75%;
-  padding-top: 50px;
-}
-
-.col-md-4 {
-  font-size: 150%;
+.home-row-jumbo-left {
+  padding-left: 10%;
+  padding-right: 10%;
+  position: relative;
 }
 
 .fa-comments {
   font-size: 250px;
+}
+
+.home-row-jumbo-right {
+  padding-left: 5%;
+  padding-right: 10%;
+  position: absolute;
+  margin-top: 40px;
+}
+
+.non-rw-sentence {
+  margin: 0;
+}
+
+.non-rw-sentence h2{
+  font-size: 300%;
+  margin: 0;
+}
+
+.non-rw-sentence span{
+  font-size: 150%;
+}
+
+.rw-wrapper{
+
+}
+
+.rw-sentence {
+  margin: 0;
+}
+
+.rw-sentence span{
+  font-size: 200%;
+  font-weight: normal;
+}
+
+.rw-words{
+  display: inline;
+}
+
+.rw-words span {
+  white-space: nowrap;
+}
+
+.home-row-features {
+  background-color: rgb(253, 255, 222);
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  padding: 50px 15%;
+}
+
+.home-row-features-col {
+  font-size: 150%;
 }
 
 section.message-image {
@@ -74,23 +126,58 @@ section.message-image {
   padding-left: 10%;
 }
 
-.page-wrapper-btns {
-  margin-left: -40px;
+.home-row-parallax { 
+  background: url('/assets/bg1.jpg') 50% 0 repeat fixed;
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  padding-top: 150px; //take font px off
+//  position: relative;
 }
 
-.rw-wrapper{
-  display: inline-block;
-  padding-left: 10%;
-  position: relative;
-}
-.rw-sentence span{
-  margin-top: -35px;
-  font-size: 200%;
-  font-weight: normal;
-}
-.rw-words{
+.home-row-parallax span { 
+  background-color: rgba(138, 97, 97, 0.6);
   display: inline;
+  font-size: 50px;
+  font-family: 'Bree Serif';
+  color: rgb(255, 236, 236);
 }
+
+form.new_emailer {
+  text-align: center;
+  font-size: 200%;
+}
+
+#new_emailer > div.field {
+  padding-top: 15px;
+}
+
+div#contact-us {
+  background-color: #fdffde;
+  height: 900px;
+  margin-top: -21px;
+}
+
+div#contact-us h1 {
+  text-align: center;
+  padding-top: 50px;
+}
+ 
+div#contact-us input {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .rw-words span{
   position: absolute;
@@ -188,45 +275,4 @@ section.message-image {
 }
 @media screen and (max-width: 320px){
   .rw-sentence { font-size: 9px; }
-}
-
-#home { 
-  background: url('/assets/bg1.jpg') 50% 0 repeat fixed;
-  height: 400px;
-  width: 100%;
-  text-align: center;
-  padding-top: 150px; //take font px off
-//  position: relative;
-}
-
-#home span { 
-  background-color: rgba(138, 97, 97, 0.6);
-  display: inline;
-  font-size: 50px;
-  font-family: 'Bree Serif';
-  color: rgb(255, 236, 236);
-}
-
-form.new_emailer {
-  text-align: center;
-  font-size: 200%;
-}
-
-#new_emailer > div.field {
-  padding-top: 15px;
-}
-
-div#contact-us {
-  background-color: #fdffde;
-  height: 900px;
-  margin-top: -21px;
-}
-
-div#contact-us h1 {
-  text-align: center;
-  padding-top: 50px;
-}
- 
-div#contact-us input {
-  
 }

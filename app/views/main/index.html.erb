@@ -1,14 +1,15 @@
-<div class="container page-wrapper">  
-  <div id="header">
-    <section class="message-image">
+<div class="container home-container">  
+  <div class="home-row-jumbo">
+    <div class="home-row-jumbo-left">
       <i class="fa fa-comments fa-5x"></i>
       <br>
-      <div class="page-wrapper-btns">
-      <button class="btn-lg btn-primary">Sign Up</button>
-      <button class="btn-lg btn-info">Guest Account</button>
+      <div class="home-container-btns">
+        <button class="btn-lg btn-primary">Sign Up</button>
+        <button class="btn-lg btn-info">Guest Account</button>
+      </div>
     </div>
-    </section>
-    <section class="rw-wrapper">
+    
+    <div class="home-row-jumbo-right rw-wrapper">
       <h2 class="rw-sentence">
         <div class="rw-words">
           <span>Friendship</span>
@@ -18,47 +19,50 @@
           <span>Love</span>
           <span>Kittens</span>
         </div>
-        <br>
-        <span>may last forever.</span>
-      </h2>
-      <h3>
-        <span>But that doesn't mean</span>
-      
-        <span>your messages have to.</span>
-        </h3>
-    </section>
+        <div class='spacer'>
+
+        </h2>
+        <div class='non-rw-sentence'>
+          <h2>may last forever.</h2>
+          <br>
+          <span>But that doesn't mean your messages have to last.</span>
+          <br><br>
+          <span>Send. Open. Delete.</span>
+          <br>
+          <span>Some things are permanent. Some things shouldn't be.</span>
+        </div>
+      </div>
     
 
-  </div>
+    </div>
   
-  <div id="features">
-    <div class="row">
-      <div class="col-md-4">
-
-<i class="fa fa-eye-slash fa-5x"></i>
-        <h2>Secure</h2>
-        <p>Once opened, your messages are deleted permenantly from the server. Each message has its unique 128-bit ID, making your links virtually impossible to guess.</p>
-      </div>
-      <div class="col-md-4">
-<i class="fa fa-mobile-phone fa-5x"></i>
-        <h2>Accessible</h2>
-        <p>Why limit your messages to your phone or just your computer? Snapmsgs are available on any device, anywhere.</p>
-      </div>
-      <div class="col-md-4">
-<i class="fa fa-bolt fa-5x"></i>
-        <h2>Ephemeral</h2>
-        <p>Your Snapmsgs come and go, like a self-destructing spy gadget. Send messages and confirm that they've received your message (picture messages coming soon).</p>
+    <div class="home-row-features">
+      <div class="row">
+        <div class="col-md-4 home-row-features-col">
+          <i class="fa fa-bolt fa-5x"></i>
+          <h2>Ephemeral</h2>
+          <p>Your Snapmsgs work like Snapchat. You can send your text message, have the recipient view it once, and verify receipt. (picture messages coming soon).</p>
+        </div>
+        <div class="col-md-4 home-row-features-col">
+          <i class="fa fa-eye-slash fa-5x"></i>
+          <h2>Secure</h2>
+          <p>Once opened, your messages are deleted permenantly from the server. Each message has its unique 128-bit ID, making your links impossible to guess.</p>
+        </div>
+        <div class="col-md-4 home-row-features-col">
+          <i class="fa fa-mobile-phone fa-5x"></i>
+          <h2>Accessible</h2>
+          <p>Why limit your messages to only iPhone or Android users? Snapmsgs are available on any device, anywhere.</p>
+        </div>
       </div>
     </div>
-  </div>
   
-  <section id="home" data-type="background" data-speed="10" class="pages">     
-           <span>“Extract the eternal from the ephemeral.”</span>
-           <br>
-           <span>― Charles Baudelaire</span>
-      </section>   
+    <section id="home" class="home-row-parallax" data-type="parallax" data-speed="10" class="pages">     
+      <span>“Extract the eternal from the ephemeral.”</span>
+      <br>
+      <span>― Charles Baudelaire</span>
+    </section>   
      
-  <div id="contact-us">
-    <%= render "emailers/contactus", :@emailer => @emailer, action: :new %>
+    <div id="contact-us">
+      <%= render "emailers/contactus", :@emailer => @emailer, action: :new %>
+    </div>
   </div>
-</div>

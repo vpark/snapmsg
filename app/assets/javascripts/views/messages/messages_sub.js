@@ -72,6 +72,8 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     // debugger;
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
     $li.after(messageEditView.render().$el);
+    
+    $('.msg-edit-form').addClass('animated slideInDown').show();
   },
   
   editCancel: function(event){
@@ -79,7 +81,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     var $li = $form.parent().prev();
     $form.remove();
     $li.show();
-    this.clearForm();
+    $('.msg-li-body').remove();
   },
   
   editSubmit: function(event){

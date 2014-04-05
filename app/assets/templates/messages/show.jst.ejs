@@ -2,15 +2,18 @@
   <div class="panel-heading">
     <h3 class="panel-title msg-li-title"><%= message.get("title")%></h3>
   </div>
-  <div class='panel-body msg-li-body'>
-    <div class='msg-li-content'><%=message.escape("content")%></div>
-    <div class='msg-li-timer'></div>
+  <div class='panel-body msg-li-body msg-show'>
+    <div class='msg-li-content msg-show'><%=message.escape("content")%></div>
+    <div class='msg-li-timer msg-show'></div>
   </div>
 </li>
 <% var counter = message.get("timer"); %>
 <% var interval = setInterval(function(){ %>
   <% if (counter == 0) { %>
-    <% $('.msg-li').remove(); %>
+    <% $('.msg-li').addClass('animated fadeOutDown'); %>
+    <% setTimeout(function(){ %>
+      <% $('.msg-li').remove(); %>
+    <% }, 1000); %>
     <% clearInterval(interval); %>
   <% } %>
   <% $('.msg-li-timer').html(counter)%>

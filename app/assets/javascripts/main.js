@@ -2,7 +2,7 @@ $(document).ready(function(){
     
   //parallax code
   $window = $(window);
-  $('section[data-type="background"]').each(function(){
+  $('[data-type="parallax"]').each(function(){
     var $bgobj = $(this); // assigning the object
      
     $window.scroll(function() {
@@ -15,4 +15,13 @@ $(document).ready(function(){
       $bgobj.css({ backgroundPosition: coords });
     }); 
   });
+  
+  var rwFontSize = $('.rw-words span').css('font-size');
+  console.log(rwFontSize);
+  $('.spacer').css('height', rwFontSize);
+  
+  $(window).resize(function() {
+    var rwFontSize = $('.rw-words span').css('font-size');
+    $('.spacer').css('height', rwFontSize);
+  })
 });
