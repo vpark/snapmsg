@@ -58,3 +58,5 @@ gem 'active_attr'
 
 gem 'rest-client'
 gem 'figaro'
+
+gem 'rails_12factor', group: :production
