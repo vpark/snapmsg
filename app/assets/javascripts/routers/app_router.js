@@ -26,15 +26,15 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
       id: message_id
     });
     console.log('id', message_id)
-      messageModel.fetch({
-        success: function(){
-          console.log("message model fetched");
-          var messageShow = new Snapmsg.Views.MessagesShow({
-            message: messageModel
-          });
+    messageModel.fetch({
+      success: function(){
+        console.log("message model fetched");
+        var messageShow = new Snapmsg.Views.MessagesShow({
+          message: messageModel
+        });
         view.$container.html(messageShow.render().$el);
-        }
-      });
+      }
+    });
 
   },
   
@@ -73,14 +73,14 @@ Snapmsg.Routers.AppRouter = Backbone.Router.extend({
   copyLink: function () {
     var zeroclipboard = new ZeroClipboard($('i[data-clipboard-text]'));
     
-      zeroclipboard.on('complete', function(client, args) {
-        console.log('complete');
-        $(this).tooltip('show');
-        $link = $(this);
-        setTimeout(function(){
-          $link.tooltip('hide');
-        }, 1000);
-      });
+    zeroclipboard.on('complete', function(client, args) {
+      console.log('complete');
+      $(this).tooltip('show');
+      $link = $(this);
+      setTimeout(function(){
+        $link.tooltip('hide');
+      }, 1000);
+    });
   }
   
 });

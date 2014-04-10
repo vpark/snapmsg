@@ -22,38 +22,35 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   showFull: function (event) {
-    this.clearForm();
+    event.stopPropagation();
+    // this.clearForm();
+    console.log('showfull clicked');
+    // debugger;
     var $li = $(event.currentTarget).closest('li');
-    var model = this.messages.get($li.attr('id'));
     
-    var showFullContent = this.templateFull({
-      message: model
-    });
-    
-    if (this.prevShow != model) {
-      $li.append(showFullContent);
-      $('.msg-li-body').show('slow', function(){
-        $('.msg-li-timer').show();
+    if ($li.find('.msg-li-body').length > 0) {
+      this.clearForm($li);
+      console.log($li.find('.msg-li-body'));
+    } else {
+      var model = this.messages.get($li.attr('id'));
+      var showFullContent = this.templateFull({
+        message: model
       });
-      this.prevShow = model;
-    }
-    // show timer and the content upon clicking
-  },
-  
-  test: function(event){
-    console.log("bleh", $(event.currentTarget), $('.msg-ul')[0] );
-    if ( $(event.currentTarget)[0] == $('.msg-ul')[0] ) {
-      this.clearForm();
+      $li.append(showFullContent);
+      $('.msg-li-body').fadeIn(function(){
+        $('.msg-li-timer').fadeIn().show(400);
+      });
     }
   },
   
-  clearForm: function() {
-    $('.msg-li-body').slideUp('slow', function(){
+  clearForm: function($li) {
+    $li.find('.msg-li-body').fadeOut(function(){
       this.remove();
     });
   },
   
   deleteMessage: function (event) {
+    event.stopPropagation();
     var view = this;
     var $li = $(event.currentTarget).closest('li');
     var model = this.messages.get($li.attr('id'));
@@ -65,6 +62,7 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
   },
   
   edit: function(event){
+    event.stopPropagation();
     // $(".msg-li-content").remove();
     var $li = $(event.currentTarget).closest('li');
     $li.hide();
@@ -73,15 +71,18 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     var messageEditView = new Snapmsg.Views.MessagesEdit({ message: model });
     $li.after(messageEditView.render().$el);
     
-    $('.msg-edit-form').addClass('animated slideInDown').show();
+    $('.msg-edit-form').fadeIn().show();
   },
   
   editCancel: function(event){
+    event.stopPropagation();
     var $form = $(event.currentTarget).closest('form');
     var $li = $form.parent().prev();
-    $form.remove();
+    $form.fadeOut(function(){
+          this.remove();
+        });
     $li.show();
-    $('.msg-li-body').remove();
+    // $('.msg-li-body').remove();
   },
   
   editSubmit: function(event){

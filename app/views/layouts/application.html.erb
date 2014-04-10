@@ -18,54 +18,59 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="">SnapMsg</a>
-      </div>
+        <a class="navbar-brand" href="">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-magic fa-stack-1x magic-wand"></i>
+          </span>
+          &nbspSnapMsg</a>
+        </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-        </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          </ul>
         
-        <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li><a href="../#/users/<%= current_user.id %>/messages">My Messages</a></li>
-          <% else %>
-          <li><%= link_to "Home", root_path %></li>
-          <% end %>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          
-          <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= current_user.email %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="../#/users/<%= current_user.id %>/messages/new">New Message</a></li>
-              <li><a href="#">Statistics</a></li>
-              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li><a href="../#/users/<%= current_user.id %>/messages">My Messages</a></li>
             <% else %>
-          <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Home", root_path %></li>
             <% end %>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          
+            <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.email %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../#/users/<%= current_user.id %>/messages/new">New Message</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              </ul>
+              <% else %>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <% end %>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
-  <!-- <div id="user_nav">
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %>
-  </div> -->
+    <!-- <div id="user_nav">
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Login", new_user_session_path %>
+      </div> -->
   
-  <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
+      <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info fade in", id: "flash_#{name}", "data-dismiss" => "alert" %>
+      <% end %>
     
-  <%= yield %>
+      <%= yield %>
   
-</body>
-</html>
+    </body>
+    </html>

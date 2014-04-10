@@ -28,7 +28,7 @@ $msg-index-width: 750px;
 .msg-show-subview {
   margin-top: -100px;
   padding-bottom: 150px;
-  background-color: rgba(64, 255, 176, 1);
+//  background-color: rgba(64, 255, 176, 1);
 }
 
 .msg-ul {
@@ -96,6 +96,10 @@ $msg-edit-form-padding: 30px;
   color: white;
 }
 
+.msg-new-form {
+  margin-top: 50px;
+}
+
 .msg-edit-form {
   display: none;
 }
@@ -127,3 +131,19 @@ $msg-edit-form-padding: 30px;
 .msg-li-btn-link.zeroclipboard-is-hover {
   color: rgb(109, 109, 109);
 }
+
+//#show_messages{
+//  width: 80%;
+//  margin: auto;
+//}
+//
+//.msg-ul {
+//  border-radius: 25px;
+//  background-color: rgb(215, 215, 215);
+//  list-style-position: inside;
+//}
+
+.msg-li {
+/*  padding-bottom: 10px;*/
+}
+

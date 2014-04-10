@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
     @message.save!
     
     # respond_with(@message)
+    flash[:notice] = "Message saved!"
     redirect_to user_messages_url
     # render "show"
   end

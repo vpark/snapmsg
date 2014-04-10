@@ -3,7 +3,6 @@ Snapmsg.Views.MessagesNew = Backbone.View.extend({
     this.user = options.user;
     this.messages = options.messages;
     this.indexView = options.indexView;
-    console.log('messagesNewView initialized');
   },
   
   events: {
@@ -13,7 +12,9 @@ Snapmsg.Views.MessagesNew = Backbone.View.extend({
   
   newCancel: function(event){
     event.preventDefault();
-    this.$el.empty();
+    this.$el.empty(); //create modal asking are you sure
+    // if they press yes, then delete, go back if no
+    
   },
   
   newSubmit: function(event){
@@ -30,10 +31,16 @@ Snapmsg.Views.MessagesNew = Backbone.View.extend({
     },{
       success: function(){
         console.log("saved new message");
-        view.indexView.refresh();
-        view.$el.empty();
+        window.location.reload();
+        // display submitted from controller
       }
     });
+  },
+  
+  clearForm: function($form){
+    $form.find('#msg-new-title').val("");
+    $form.find('#msg-new-content').val("");
+    $form.find('#msg-new-timer').val("");
   },
   
   template: JST["messages/new"],
