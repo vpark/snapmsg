@@ -1,68 +1,55 @@
 <div class="container home-container">  
   <div class="home-row-jumbo">
-    <div class="home-row-jumbo-left">
+    
+    <div class='home-title'>
+      <div id="content-1">SEND</div>
+      <div id="content-2">VIEW</div>
+      <div id="content-3">DELETE</div>
+      <div id="content-4">REPEAT</div>
+    </div>
+    <br>
+      
+    <div class='home-picture'>
       <i class="fa fa-comments fa-5x"></i>
-      <br>
-      <div class="home-container-btns">
-        <button class="btn-lg btn-primary">Sign Up</button>
-        <button class="btn-lg btn-info">Guest Account</button>
-      </div>
     </div>
-    
-    <div class="home-row-jumbo-right rw-wrapper">
-      <h2 class="rw-sentence">
-        <div class="rw-words">
-          <span>Friendship</span>
-          <span>Diamonds</span>
-          <span>Honey</span>
-          <span>The universe</span>
-          <span>Love</span>
-          <span>Kittens</span>
-        </div>
-        <div class='spacer'>
+    <br>
+      
+    <h2 class='home-subtitle'>Ephemeral messaging. Redefined.</h2>
+      
+    <div class="home-container-btns">
+      <button class="btn-lg btn-primary">Sign Up</button>
+      <button class="btn-lg btn-info">Guest Account</button>
+    </div>
 
-        </h2>
-        <div class='non-rw-sentence'>
-          <h2>may last forever.</h2>
-          <br>
-          <span>But that doesn't mean your messages have to last.</span>
-          <br><br>
-          <span>Send. Open. Delete.</span>
-          <br>
-          <span>Some things are permanent. Some things shouldn't be.</span>
-        </div>
-      </div>
-    
-
-    </div>
+  </div>
   
-    <div class="home-row-features">
-      <div class="row">
-        <div class="col-md-4 home-row-features-col">
-          <i class="fa fa-bolt fa-5x"></i>
-          <h2>Ephemeral</h2>
-          <p>Your Snapmsgs work like Snapchat. You can send your text message, have the recipient view it once, and verify receipt. (picture messages coming soon).</p>
-        </div>
-        <div class="col-md-4 home-row-features-col">
-          <i class="fa fa-eye-slash fa-5x"></i>
-          <h2>Secure</h2>
-          <p>Once opened, your messages are deleted permenantly from the server. Each message has its unique 128-bit ID, making your links impossible to guess.</p>
-        </div>
-        <div class="col-md-4 home-row-features-col">
-          <i class="fa fa-mobile-phone fa-5x"></i>
-          <h2>Accessible</h2>
-          <p>Why limit your messages to only iPhone or Android users? Snapmsgs are available on any device, anywhere.</p>
-        </div>
+  <div class="home-row-features">
+    <div class="row">
+      <div class="col-md-4 home-row-features-col">
+        <i class="fa fa-bolt fa-5x"></i>
+        <h2>Ephemeral</h2>
+        <p>Your Snapmsgs work like Snapchat. You can send your text message, have the recipient view it once, and verify receipt. (picture messages coming soon).</p>
       </div>
-    </div>
-  
-    <section id="home" class="home-row-parallax" data-type="parallax" data-speed="10" class="pages">     
-      <span>“Extract the eternal from the ephemeral.”</span>
-      <br>
-      <span>― Charles Baudelaire</span>
-    </section>   
-     
-    <div id="contact-us">
-      <%= render "emailers/contactus", :@emailer => @emailer, action: :new %>
+      <div class="col-md-4 home-row-features-col">
+        <i class="fa fa-eye-slash fa-5x"></i>
+        <h2>Secure</h2>
+        <p>Once opened, your messages are deleted permenantly from the server. Each message has its unique 128-bit ID, making your links impossible to guess.</p>
+      </div>
+      <div class="col-md-4 home-row-features-col">
+        <i class="fa fa-mobile-phone fa-5x"></i>
+        <h2>Accessible</h2>
+        <p>Why limit your messages to only iPhone or Android users? Snapmsgs are available on any device, anywhere.</p>
+      </div>
     </div>
   </div>
+  
+  <section id="home" class="home-row-parallax" data-type="parallax" data-speed="10" class="pages">     
+    <span>“Extract the eternal from the ephemeral.”</span>
+    <br>
+    <span>― Charles Baudelaire</span>
+  </section>   
+     
+  <div id="contact-us">
+    <%= render "emailers/contactus", :@emailer => @emailer, action: :new %>
+  </div>
+</div>

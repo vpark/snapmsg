@@ -16,12 +16,16 @@ $(document).ready(function(){
     }); 
   });
   
-  var rwFontSize = $('.rw-words span').css('font-size');
-  console.log(rwFontSize);
-  $('.spacer').css('height', rwFontSize);
-  
-  $(window).resize(function() {
-    var rwFontSize = $('.rw-words span').css('font-size');
-    $('.spacer').css('height', rwFontSize);
-  })
+  var titleWords = $('div[id^="content-"]').hide(),
+      i = 0;
+
+  (function cycle() { 
+
+      titleWords.eq(i).fadeIn(600)
+                .delay(1000)
+                .fadeOut(600, cycle);
+
+      i = ++i % titleWords.length;
+
+  })();
 });
