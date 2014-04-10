@@ -10,10 +10,11 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    @message.save!
-    
-    # respond_with(@message)
-    flash[:notice] = "Message saved!"
+    if @message.save!
+      flash[:notice] = "Message saved!"
+    # else
+    #   flash[:error] = "Please fill out missing fields!"
+    end
     redirect_to user_messages_url
     # render "show"
   end
@@ -39,7 +40,7 @@ class MessagesController < ApplicationController
     
     if @message.opened == false
       # uncomment to allow view only once
-      # @message.update_attributes(opened: true)
+      @message.update_attributes(opened: true)
       respond_with(@message)
     else
       respond_with(nil)

@@ -44,6 +44,10 @@ $msg-index-width: 750px;
   margin: 0 auto 20px auto;
 }
 
+.msg-li-title {
+//  padding-top: 100px;
+}
+
 .msg-li-btns {
   float:right;
   font-size: 23px;
@@ -97,7 +101,7 @@ $msg-edit-form-padding: 30px;
 }
 
 .msg-new-form {
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .msg-edit-form {
@@ -143,7 +147,7 @@ $msg-edit-form-padding: 30px;
 //  list-style-position: inside;
 //}
 
-.msg-li {
-/*  padding-bottom: 10px;*/
+.msg-li-show {
+  margin-top: 25px;
 }
 
