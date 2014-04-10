@@ -1,4 +1,4 @@
-<h1>Contact Us</h1>
+<h1>Questions?</h1>
 
 <%= form_for @emailer do |f| %>
   <% if @emailer.errors.any? %>
@@ -27,5 +27,5 @@
     <%= f.label :content, "Message" %><br />
     <%= f.text_area :content, :rows => 5 %>
   </div>
-  <div class="actions"><%= f.submit "Send Message" %></div>
+  <div class="actions"><%= f.submit "Send Message", class: "btn btn-primary" %></div>
 <% end %>

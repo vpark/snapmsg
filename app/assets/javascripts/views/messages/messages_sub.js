@@ -79,9 +79,10 @@ Snapmsg.Views.MessagesSub = Backbone.View.extend({
     var $form = $(event.currentTarget).closest('form');
     var $li = $form.parent().prev();
     $form.fadeOut(function(){
-          this.remove();
-        });
-    $li.show();
+      this.remove();
+      $li.show();
+    });
+
     // $('.msg-li-body').remove();
   },
   
