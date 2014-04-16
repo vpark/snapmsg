@@ -17,7 +17,7 @@
     <h2 class='home-subtitle'>Ephemeral messaging. Redefined.</h2>
       
     <div class="home-container-btns">
-      <button class="btn-lg btn-info">Sign Up</button>
+      <%= button_to "Sign Up", new_user_registration_path, class: "button btn-lg btn-info", method: :get %>
       <%= form_tag("/users/login", method: "post") do %>
         <%= hidden_field(:user, :email, value: "test@test.com") %>
         <%= hidden_field(:user, :password, value: "testtest") %>
